@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+  <style>
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  .background-container {
+    background-image: url(shelfbg.jpeg);
+    opacity: 0.25;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .main {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    max-width: 700px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #cfc6b9bd;
+    color: #322121;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background-container"></div>
+
+  {{> navbar}}
+
+  <div class="main">
+    <h1>Here are the results:</h1>
+
+    {{#each data.items}} 
+        <p><a href= 'bookDetails/{{this.id}}'>Title: {{this.volumeInfo.title}} | Author: {{this.volumeInfo.authors}} | Publication Date: {{this.volumeInfo.publishedDate}}</a></p> 
+    {{/each}} 
+
+  </div>
+     
+</body>
+</html>

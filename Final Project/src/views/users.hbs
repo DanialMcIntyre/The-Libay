@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+  <style>
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .background-container {
+    background-image: url(shelfbg.jpeg);
+    opacity: 0.25;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .main {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    max-width: 700px;
+    padding: 20px;
+    background-color: #7c766dbd;
+    color: #322121;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background-container"></div>
+
+  {{> navbar}}
+
+  <div class="main">
+  {{#if isAdmin}}
+  <h1>Here are the list of users:</h1>
+
+   {{#each users}} 
+      <p>Username: {{this.username}} | Password: {{this.password}} | Role: {{this.role}}</p> 
+   {{/each}} 
+  
+  {{else}}
+  <h1>You need to be ADMIN to view users!</h1>
+  {{/if}}
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+  <style>
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .background-container {
+    background-image: url('../shelfbg.jpeg');
+    opacity: 0.25;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .main {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    max-width: 700px;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #cfc6b9bd;
+    color: #322121;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+
+  h1, h2, h3 {
+    color: #272726;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    margin-top: 10px;
+  }
+
+  label {
+    margin-right: 10px;
+  }
+
+  select {
+    width: 100px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  .add {
+    background-color: #3C362A;
+    color: rgb(175 213 217);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background-container"></div>
+
+  {{> navbar}}
+
+  <div class="main">
+    <h1>{{data.volumeInfo.title}}</h1>
+    <h2>Written by {{data.volumeInfo.authors}}</h2>
+    <h3>Published by {{data.volumeInfo.publisher}} on {{data.volumeInfo.publishedDate}}</h3>
+
+    <div>
+      <img src="{{data.volumeInfo.imageLinks.thumbnail}}" alt="Book Thumbnail">
+    </div>
+    <p>Description: </p> {{{data.volumeInfo.description}}}
+    <p>Page count: {{data.volumeInfo.pageCount}}</p>
+
+    {{#if isAdded}}
+      <h2>This book has been added to a shelf!</h2>
+    {{/if}}
+
+    <form action="/addToShelf" method="post">
+        <input type="hidden" name="bookTitle" value="{{data.volumeInfo.title}}">
+        <input type="hidden" name="bookID" value="{{data.id}}">
+        <input type="hidden" name="bookData" value="{{data}}">
+        <label for="selectBox">Add this book to a shelf!</label>
+        <select name="selectedOption">
+        {{#each shelfNames}} 
+          <option value={{this.shelf_name}}>{{this.shelf_name}}</option>
+        {{/each}} 
+        </select>
+        <button class="add" type="submit">Add to shelf</button>
+    </form>
+
+  </div>
+     
+</body>
+</html>

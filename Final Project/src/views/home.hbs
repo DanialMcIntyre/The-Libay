@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+  <style>
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .background-container {
+    background-image: url(shelfbg.jpeg);
+    opacity: 0.25;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 110%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+  }
+
+  .main {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    max-width: 700px;
+    padding: 20px;
+    background-color: #cfc6b9bd;
+    color: #322121;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background-container"></div>
+
+  {{> navbar}}
+
+  <div class="main">
+    <h1>Welcome to the Libay</h1>
+    <p>This is my final project for the course: COMP 2406</p>
+    <p>This website allows users to search Google's Book API for books and see their details.
+      Users can also create 'bookshelves' in their library, which can store books they search for,
+      allowing them to easily organize their books. There is a fully functioning authentication system
+      with an admin that can see all users. Start by clicking the buttons in the navbar.
+    </p>
+    <p>Enjoy!</p>
+  </div>
+
+     
+</body>
+</html>

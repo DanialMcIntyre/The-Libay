@@ -1,0 +1,62 @@
+<head> 
+  <style>
+  .navbar {
+    background-color: #3C362A;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+    padding: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+  }
+
+  button {
+    background-color: #3C362A;
+    color: rgb(137, 185, 190);
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #44929d;
+  }
+
+  </style>
+</head> 
+
+<div class="navbar">
+
+    <form action="/home" method="get">
+      <button type="submit" >Home</button>
+    </form>
+
+    <form action="/users" method="get">
+      <button type="submit" >Users</button>
+    </form>
+
+    <form action="/library" method="get">
+      <button type="submit" >Library</button>
+    </form>
+
+    <form action="/search" method="get">
+      <button type="submit" >Search</button>
+    </form>
+
+    <form action="/logout" method="get">
+      <button type="submit" >Logout</button>
+    </form>
+
+</div>
