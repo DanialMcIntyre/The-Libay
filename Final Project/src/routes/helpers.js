@@ -1,7 +1,9 @@
 var https = require('https');
 var sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./data/db_books');
-const API_KEY = "AIzaSyBUi0ZctuBYgmgzCQen70tMjvt-c2Xu57U"
+var db = new sqlite3.Database('../data/db_books');
+
+require('dotenv').config({path:__dirname + '/./../../.env'});
+const key = process.env.API_KEY;
 
 //API call to get book details from book ID
 function getBookDetails(bookID, req, res, added) {
@@ -50,7 +52,7 @@ function searchBooks(searchTerm, req, res) {
 
 	let options = {
 		host: 'www.googleapis.com',
-		path: '/books/v1/volumes?q=' + searchTerm + '&maxResults=20&key=' + API_KEY,
+		path: '/books/v1/volumes?q=' + searchTerm + '&maxResults=20&key=' + key,
 		method: 'GET'
 	}
 

@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-var sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('./data/db_books');
 const main = require('./helpers.js')
 
 //Checks if user is authenticated

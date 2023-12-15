@@ -13,15 +13,19 @@ In the project directory, install the dependencies with:
 npm install
 ```
 
+Then, obtain an [API key](https://developers.google.com/books), and copy the following lines into a .env file in the root directory
+
+`API_KEY = "your-api-key-here"`
+
 ## Running
 
-In the project directory, run the following command:
+In the src directory, run the following command:
 
 ```ssh
 node server.js
 ```
 
-This will start up the app   
+This will start up the app  
 Open [http://localhost:3000] to view it in your browser.
 
 Login details:  

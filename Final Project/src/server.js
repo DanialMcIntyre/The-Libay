@@ -8,7 +8,7 @@ var hbs = require('hbs')
 
 //Require db
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('data/db_books');
+var db = new sqlite3.Database('../data/db_books');
 
 //Require routes
 const authenticationRoutes = require('./routes/authentication.js');
@@ -37,7 +37,7 @@ app.locals.pretty = true;
 //Middleware
 app.use(session({secret: 'secretkey', resave: false, saveUninitialized: true}));
 app.use(express.urlencoded({ extended: true }));
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '../public', 'bookicon.ico')));
 app.use(logger('dev'));
 app.use(express.static("images"));
 app.use(express.json());
