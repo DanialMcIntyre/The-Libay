@@ -1,12 +1,12 @@
 # The Libay
-***
+
 This web application allows users to search Google's Book API for books to view their details.  
 Users can also create _bookshelves_ in their library, which can store books they search for, allowing them to easily organize their books.  
 There is a also fully functioning authentication system with an admin that can see all users.  
 Start by clicking the buttons in the navbar after logging in.
 
 ## Installation
----
+
 In the project directory, install the dependencies with:
 
 ```ssh
@@ -14,7 +14,7 @@ npm install
 ```
 
 ## Running
----
+
 In the project directory, run the following command:
 
 ```ssh
@@ -32,5 +32,5 @@ Username: Bill, Password: pass
 OR register your own account!  
 
 ## Video demonstration
----
+
 [![Alt text](https://img.youtube.com/vi/5vNyfQkGudM/0.jpg)](https://www.youtube.com/watch?v=5vNyfQkGudM)
